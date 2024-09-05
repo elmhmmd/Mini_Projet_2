@@ -54,14 +54,13 @@ int main()
                                 scanf("%s",nouveau_numero);
                                 printf("Veuillez saisir le nouveau email du contact \n");
                                 scanf("%s",nouveau_email);
-                                scanf("%s",contact_a_modifier);
                                 int indice = chercher_un_contact(contact_a_modifier); 
                                 strcpy(contacts[indice].numero,nouveau_numero); 
 				strcpy(contacts[indice].email,nouveau_email);
 				break;
                         case 3:          
 			        printf("\n");
-			        char nom_a_supprimer;
+			        char nom_a_supprimer[100];
                                 printf("Veuillez saisir le nom du contact dont vous voulez supprimer \n");
                                 scanf("%s",nom_a_supprimer);
                                 int index = chercher_un_contact(nom_a_supprimer);
@@ -69,7 +68,7 @@ int main()
 				{
                                         strcpy(contacts[x].nom,contacts[x+1].nom);
                                         strcpy(contacts[x].email,contacts[x+1].email);
-					contacts[x].numero= contacts[x+1].numero;
+					strcpy(contacts[x].numero,contacts[x+1].numero);
 					}
 				}
 				j--;
@@ -77,9 +76,10 @@ int main()
                         case 4:
 			        for(int a=0;a<j;a++)
 				{
-                                    printf("Nom: %s, Numero: %s, Email: %s",Contacts[a].nom,Contacts[a].numero,Contacts[a].email);
+                                    printf("Nom: %s, Numero: %s, Email: %s",contacts[a].nom,contacts[a].numero,contacts[a].email);
 				    printf("\n");
 				}
 				break;
-}}}
+}}return 0;
+}
 
